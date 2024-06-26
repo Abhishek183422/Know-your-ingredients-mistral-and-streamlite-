@@ -1,1 +1,6 @@
-To make it work first you have to installed ollama app from mac or for windows, after that run the app and then run the code "streamlit run main.py"
+To get started:
+
+Install the Ollama app on your Mac or Windows computer.
+Run the Ollama app.
+Execute the command streamlit run main.py.
+Please note that this is still in the beta stage. Further refinements and image preprocessing improvements are in progress.
