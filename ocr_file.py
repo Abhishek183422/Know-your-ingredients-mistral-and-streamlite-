@@ -18,8 +18,9 @@ class OcrDetect:
         resized_image = cv2.resize(gray_image, None, fx=3, fy=4, interpolation=cv2.INTER_LINEAR)
 
         # Apply CLAHE to improve contrast in shadowed areas
-        clahe = cv2.createCLAHE(clipLimit=4.0, tileGridSize=(15, 15))
+        clahe = cv2.createCLAHE(clipLimit=5.0, tileGridSize=(20, 20)) #4.0, 15,15
         clahe_image = clahe.apply(resized_image)
+        st.image(gray_image,channels='RGB',width=500)
         # Perform OCR on the image
         result = reader.readtext(clahe_image)
         threshold_val_probabi= 0.6 ######3 to be put in config file
