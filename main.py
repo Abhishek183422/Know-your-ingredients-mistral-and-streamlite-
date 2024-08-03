@@ -44,14 +44,19 @@ class LanchainWork:
     def streamlit_view(self):
         # Check if a file was uploaded
         if self.pic_uploaded_file is not None:
-            # Display the uploaded picture
-            # st.image(self.pic_uploaded_file, channels='RGB', width=500)
-            image = np.array(bytearray(self.pic_uploaded_file.read()), dtype=np.uint8)
-            image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-            # creating OCR object from ocr_file.py and we imported it here
-            ocr = OcrDetect(image)
-            # getting the text after OCR detection
-            self.ingredient_list = ocr.ocr_detect()
+            try:
+
+                # Display the uploaded picture
+                # st.image(self.pic_uploaded_file, channels='RGB', width=500)
+                image = np.array(bytearray(self.pic_uploaded_file.read()), dtype=np.uint8)
+                image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+                # creating OCR object from ocr_file.py and we imported it here
+                ocr = OcrDetect(image)
+                # getting the text after OCR detection
+                self.ingredient_list = ocr.ocr_detect()
+            except Exception as e:
+                st.error(f"Error during image processing or OCR detection: {e}")
+
         return self.ingredient_list
 
     # Mistral chat history part
