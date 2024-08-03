@@ -1,9 +1,8 @@
 huggingface-hub==0.23.5
 streamlit
-opencv-python-headless==4.10.0.82
+opencv-python-headless
 numpy
 python-dotenv
 langchain_core
 easyocr
 matplotlib
-skia-python
