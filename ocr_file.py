@@ -4,11 +4,16 @@ import  matplotlib.pyplot as plt
 import streamlit as st
 import numpy as np
 
-reader = easyocr.Reader(['en'])
-
 class OcrDetect:
     def __init__(self,image_path):
-        self.image_path=image_path
+        self.image_path = image_path
+        self.reader = None
+        try:
+            self.reader = easyocr.Reader(['en'], gpu=False)
+        except Exception as e:
+            st.error(f"Failed to initialize EasyOCR Reader: {e}")
+            raise
+
     
     def ocr_detect(self):
         # Load the image
