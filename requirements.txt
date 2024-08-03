@@ -1,6 +1,2 @@
-streamlit
-opencv-python
-dotenv
-numpy
-langchain
+
 huggingface-hub==0.23.5
